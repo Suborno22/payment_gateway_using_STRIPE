@@ -1,0 +1,17 @@
+{
+    "name": "ubuntu/practice",
+    "autoload": {
+        "psr-4": {
+            "Ubuntu\\Practice\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Suborno22",
+            "email": "dsuborno0@gmail.com"
+        }
+    ],
+    "require": {
+        "stripe/stripe-php": "^13.3"
+    }
+}
