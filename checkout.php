@@ -13,7 +13,7 @@ $price = $_GET['price'];
 // Create the checkout session
 $checkout_session = \Stripe\Checkout\Session::create([
     "mode" => "payment",
-    "success_url" => "http://localhost:3309/success.php",
+    "success_url" => "http://localhost:3306/success.php",
     "line_items" => [
         [
             "quantity" => 1,
@@ -31,4 +31,6 @@ $checkout_session = \Stripe\Checkout\Session::create([
 // Redirect to checkout page
 http_response_code(303);
 header("Location:" . $checkout_session->url);
+// Add this in your checkout.php for debugging
+error_log("Checkout session created successfully: " . $checkout_session->id);
 ?>

@@ -10,6 +10,7 @@
 <body>
     <table cellspacing="20px">
         <tr>
+            <th>product id</th>
             <th>Product Name</th>
             <th>Price</th>
             <th>Stock</th>
