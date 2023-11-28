@@ -30,6 +30,10 @@
                     <td><a href='checkout.php?id=$row[id]&productName=$row[productName]&price=$row[price]'>Checkout</a></td>
                 </tr>";
             }
+        }else{
+            if (!$res) {
+                die("Query failed: " . mysqli_error($connect));
+            }
         }
         ?>
     </table>
