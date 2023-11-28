@@ -27,7 +27,7 @@
                     <td>$row[productName]</td>
                     <td>$row[price]</td>
                     <td>$row[stock]</td>
-                    <td><a href='checkout.php?id=$row[id]&productName=$row[productName]&price=$row[price]'>Checkout</a></td>
+                    <td><a href='checkout.php?id=$row[id]&productName=$row[productName]&price=$row[price]&stock=$row[stock]'>Checkout</a></td>
                 </tr>";
             }
         }else{

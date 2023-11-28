@@ -1,0 +1,17 @@
+FROM php:8.0
+
+# Move our PHP file into the container
+COPY ./php /usr/src/app/php
+
+# Make things easier if you shell in
+WORKDIR /usr/src/app/php
+
+# Our PHP will be running on port 8000
+EXPOSE 8000
+
+# Install the mysqli MySQL extension so we can database
+RUN docker-php-ext-install mysqli
+
+
+# Set up a web server
+CMD ["php", "-S", "0.0.0.0:8000"]

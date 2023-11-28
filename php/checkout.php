@@ -13,7 +13,7 @@ $price = $_GET['price'];
 // Create the checkout session
 $checkout_session = \Stripe\Checkout\Session::create([
     "mode" => "payment",
-    "success_url" => "http://localhost:3306/success.php",
+    "success_url" => "http://localhost:8000/success.php",
     "line_items" => [
         [
             "quantity" => 1,
@@ -22,6 +22,7 @@ $checkout_session = \Stripe\Checkout\Session::create([
                 "unit_amount" => $price * 100, // Convert price to cents
                 "product_data" => [
                     "name" => $productName,
+
                 ],
             ],
         ],

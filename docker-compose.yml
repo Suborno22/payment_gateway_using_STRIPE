@@ -1,20 +1,24 @@
-version: '3'
+version: '3.7'
 services:
-  web:
-  build: .
-  ports:
-    - "8080:80"
-  volumes:
-    - .:/var/www/html/
-  depends_on:
-    - db
-  command: sh -c "sleep 10 && apache2-foreground"
   db:
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: Dresser
+    build:
+      context: .
+      dockerfile: ./mysql/dockerfile.yaml
+    image: tutorial-db
+    restart: always
+    ports:
+      - 3307:3307
+  app:
+    build:
+      context: .
+      dockerfile: ./php/dockerfile.yaml
+    image: tutorial-php
+    restart: always
+    ports:
+      - 8000:8000
+  composer_installation:
+    container_name: composer_installation
+    image: composer
     volumes:
-      - db_data:/var/lib/mysql
-volumes:
-  db_data:
+      - ./:/usr/src/app/php
+    command: composer install --ignore-platform-reqs

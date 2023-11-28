@@ -1,10 +1,10 @@
 <?php
 $username = "root";
-$password = "password";
+$password = "example";
 $host = "db";
 $database = "Dresser";
 $connect = mysqli_connect($host,$username,$password,$database);
 if(mysqli_connect_errno()){
-    echo "".mysqli_connect_error();
+   die("Failed to connect to MySQL: " . mysqli_connect_error());
 }
 ?>
